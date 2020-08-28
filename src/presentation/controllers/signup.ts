@@ -1,9 +1,19 @@
+/* eslint-disable consistent-return */
 /* eslint-disable no-unused-vars */
 export default class SignUpController {
   handle(httpRequest: any): any {
-    return {
-      statusCode: 400,
-      body: new Error('Missing param: name'),
-    };
+    if (!httpRequest.body.name) {
+      return {
+        statusCode: 400,
+        body: new Error('Missing param: name'),
+      };
+    }
+
+    if (!httpRequest.body.email) {
+      return {
+        statusCode: 400,
+        body: new Error('Missing param: email'),
+      };
+    }
   }
 }
