@@ -1,7 +1,9 @@
 /* eslint-disable consistent-return */
-/* eslint-disable no-unused-vars */
+
+import { HttpResponse, HttpRequest } from '../../protocols/http';
+
 export default class SignUpController {
-  handle(httpRequest: any): any {
+  handle(httpRequest: HttpRequest): HttpResponse {
     if (!httpRequest.body.name) {
       return {
         statusCode: 400,

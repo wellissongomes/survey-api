@@ -17,6 +17,7 @@
   ],
   "rules": {
     "class-methods-use-this": "off",
+    "no-unused-vars": "off",
     "import/extensions": [
       "error",
       "ignorePackages",
