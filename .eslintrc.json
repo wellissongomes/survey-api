@@ -18,6 +18,7 @@
   "rules": {
     "class-methods-use-this": "off",
     "no-unused-vars": "off",
+    "consistent-return": "off",
     "import/extensions": [
       "error",
       "ignorePackages",
