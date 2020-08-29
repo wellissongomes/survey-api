@@ -1,12 +1,11 @@
 /* eslint-disable no-restricted-syntax */
 import {
-  HttpResponse, HttpRequest, Controller, EmailValidator,
-} from '../protocols';
+  HttpResponse, HttpRequest, Controller, EmailValidator, AddAccount,
+} from './signup-protocols';
 import {
   badRequest, serverError,
-} from '../helpers/http-helper';
-import { MissingParamError, InvalidParamError } from '../errors';
-import { AddAccount } from '../../domain/usecases/add-account';
+} from '../../helpers/http-helper';
+import { MissingParamError, InvalidParamError } from '../../errors';
 
 export default class SignUpController implements Controller {
   private readonly emailValidator: EmailValidator
