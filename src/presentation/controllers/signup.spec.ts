@@ -1,4 +1,3 @@
-/* eslint-disable max-classes-per-file */
 import SignUpController from './signup';
 import { EmailValidator } from '../protocols';
 import { MissingParamError, InvalidParamError, ServerError } from '../errors';
@@ -12,15 +11,6 @@ const makeEmailValidator = (): EmailValidator => {
   class EmailValidatorStub implements EmailValidator {
     isValid(emai: string): boolean {
       return true;
-    }
-  }
-  return new EmailValidatorStub();
-};
-
-const makeEmailValidatorWithError = (): EmailValidator => {
-  class EmailValidatorStub implements EmailValidator {
-    isValid(emai: string): boolean {
-      throw new Error();
     }
   }
   return new EmailValidatorStub();
@@ -121,8 +111,10 @@ describe('SignUp Controller', () => {
   });
 
   test('Should return 500 if EmailValidator throws an error', () => {
-    const emailValidatorStub = makeEmailValidatorWithError();
-    const sut = new SignUpController(emailValidatorStub);
+    const { sut, emailValidatorStub } = makeSut();
+    jest.spyOn(emailValidatorStub, 'isValid').mockImplementationOnce(() => {
+      throw new Error();
+    });
     const httpRequest = {
       body: {
         name: 'any_name',
