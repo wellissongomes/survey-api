@@ -19,6 +19,11 @@
     "class-methods-use-this": "off",
     "no-unused-vars": "off",
     "consistent-return": "off",
+    "import/prefer-default-export": "off",
+    "max-classes-per-file": "off",
+    "no-useless-constructor": "off",
+    "arrow-parens": "off",
+    "no-empty-function": "off",
     "import/extensions": [
       "error",
       "ignorePackages",
