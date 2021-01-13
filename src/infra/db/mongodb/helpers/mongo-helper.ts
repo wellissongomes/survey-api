@@ -1,7 +1,7 @@
 import { MongoClient, Collection } from 'mongodb';
 
 const MongoHelper = {
-  client: MongoClient,
+  client: null as MongoClient,
 
   async connect(url: string): Promise<void> {
     this.client = await MongoClient.connect(url, {
@@ -16,6 +16,11 @@ const MongoHelper = {
 
   getCollection(name: string): Collection {
     return this.client.db().collection(name);
+  },
+
+  map(collection: any): any {
+    const { _id, ...collectionWithoutId } = collection;
+    return { id: _id, ...collectionWithoutId };
   },
 };
 
