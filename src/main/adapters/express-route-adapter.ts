@@ -5,8 +5,15 @@ const adaptRoute = (controller: Controller) => async (req: Request, res: Respons
   const httpRequest: HttpRequest = {
     body: req.body,
   };
+
   const httpResponse = await controller.handle(httpRequest);
-  res.status(httpResponse.statusCode).json(httpResponse.body);
+  if (httpResponse.statusCode !== 200) {
+    res.status(httpResponse.statusCode).json({
+      error: httpResponse.body.message,
+    });
+  } else {
+    res.status(httpResponse.statusCode).json(httpResponse.body);
+  }
 };
 
 export default adaptRoute;
