@@ -1,9 +1,12 @@
 /* eslint-disable no-restricted-syntax */
-import { MissingParamError } from '../../errors';
+import { InvalidParamError, MissingParamError } from '../../errors';
 import { badRequest } from '../../helpers/http-helper';
 import { Controller, HttpRequest, HttpResponse } from '../../protocols';
+import { EmailValidator } from '../signup/signup-protocols';
 
 export class LoginController implements Controller {
+  constructor(private readonly emailValidator: EmailValidator) {}
+
   async handle(httpRequest: HttpRequest): Promise<HttpResponse> {
     const params = ['email', 'password'];
     for (const param of params) {
@@ -11,6 +14,12 @@ export class LoginController implements Controller {
         return badRequest(new MissingParamError(param));
       }
     }
-    return new Promise(resolve => resolve(null));
+
+    const { email } = httpRequest.body;
+
+    const isValidEmail = this.emailValidator.isValid(email);
+    if (!isValidEmail) {
+      return badRequest(new InvalidParamError('email'));
+    }
   }
 }
