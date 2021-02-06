@@ -15,10 +15,10 @@ export class LoginController implements Controller {
 
   async handle(httpRequest: HttpRequest): Promise<HttpResponse> {
     try {
-      const params = ['email', 'password'];
-      for (const param of params) {
-        if (!httpRequest.body[param]) {
-          return badRequest(new MissingParamError(param));
+      const fields = ['email', 'password'];
+      for (const field of fields) {
+        if (!httpRequest.body[field]) {
+          return badRequest(new MissingParamError(field));
         }
       }
 
