@@ -1,9 +1,6 @@
-import { throws } from 'assert';
-import { Authentication } from '../../../domain/usecases/authentication';
 import { InvalidParamError, MissingParamError } from '../../errors';
 import { badRequest, serverError, unauthorized } from '../../helpers/http-helper';
-import { EmailValidator } from '../../protocols/email-validator';
-import { HttpRequest } from '../signup/signup-protocols';
+import { HttpRequest, EmailValidator, Authentication } from './login-protocols';
 import { LoginController } from './login';
 
 const makeEmailValidator = (): EmailValidator => {
