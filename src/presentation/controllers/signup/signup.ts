@@ -1,4 +1,3 @@
-/* eslint-disable no-restricted-syntax */
 import {
   HttpResponse, HttpRequest, Controller, EmailValidator, AddAccount,
 } from './signup-protocols';

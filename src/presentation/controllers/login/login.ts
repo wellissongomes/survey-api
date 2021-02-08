@@ -1,4 +1,3 @@
-/* eslint-disable no-restricted-syntax */
 import { InvalidParamError, MissingParamError } from '../../errors';
 import {
   badRequest, ok, serverError, unauthorized,
