@@ -24,6 +24,7 @@
     "no-useless-constructor": "off",
     "arrow-parens": "off",
     "no-empty-function": "off",
+    "no-restricted-syntax": "off",
     "import/extensions": [
       "error",
       "ignorePackages",
