@@ -3,7 +3,7 @@ import {
 } from './signup-protocols';
 import {
   badRequest, serverError, ok,
-} from '../../helpers/http-helper';
+} from '../../helpers/http/http-helper';
 
 export default class SignUpController implements Controller {
   constructor(
