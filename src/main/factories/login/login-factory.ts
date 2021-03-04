@@ -10,7 +10,7 @@ import { Controller } from '../../../presentation/protocols';
 import { LogControllerDecorator } from '../../decorators';
 import { makeLoginValidation } from './login-validation-factory';
 
-const makeLoginController = (): Controller => {
+export const makeLoginController = (): Controller => {
   const accountMongoRepository = new AccountMongoRepository();
   const salt = 12;
   const bcryptAdapter = new BcryptAdapter(salt);
