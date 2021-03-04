@@ -1,6 +1,6 @@
 import { MongoClient, Collection } from 'mongodb';
 
-const MongoHelper = {
+export const MongoHelper = {
   client: null as MongoClient,
   uri: null as string,
 
@@ -29,5 +29,3 @@ const MongoHelper = {
     return { id: _id, ...collectionWithoutId };
   },
 };
-
-export default MongoHelper;

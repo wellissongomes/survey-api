@@ -1,5 +1,5 @@
 import bcrypt from 'bcrypt';
-import BcryptAdapter from './bcrypt-adapter';
+import { BcryptAdapter } from './bcrypt-adapter';
 
 const HASHED_PASSWORD = 'hashed';
 const SALT = 12;

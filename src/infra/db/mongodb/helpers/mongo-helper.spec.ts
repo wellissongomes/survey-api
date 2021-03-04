@@ -1,4 +1,4 @@
-import MongoHelper from './mongo-helper';
+import { MongoHelper } from './mongo-helper';
 
 describe('Mongo Helper', () => {
   beforeAll(async () => {
