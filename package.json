@@ -47,5 +47,8 @@
     "test:unit": "yarn test -- --watch -c jest-unit-config.js",
     "test:staged": "yarn test -- --findRelatedTests",
     "test:ci": "yarn test -- --coverage"
+  },
+  "engines": {
+    "node": "14.x"
   }
 }
